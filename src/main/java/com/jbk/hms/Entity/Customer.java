@@ -18,17 +18,17 @@ import javax.persistence.Table;
 public class Customer {
 	
 private int cid;
-private String cName;
+private String c_name;
 private int age;
-private int MobileNo;
+private int mobile_no;
 
 @OneToOne(cascade = CascadeType.ALL)
 @JoinColumn(name = "room_id", referencedColumnName = "roomId")
-private int roomId;
+private int room_id;
 
 @OneToMany(mappedBy = "payment")
 @JoinColumn(name = "paymentId", referencedColumnName = "pId")
-private int paymentId;
+private int payment_id;
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,10 +40,10 @@ public void setCid(int cid) {
 	this.cid = cid;
 }
 public String getcName() {
-	return cName;
+	return c_name;
 }
-public void setcName(String cName) {
-	this.cName = cName;
+public void setcName(String c_name) {
+	this.c_name = c_name;
 }
 
 public int getAge() {
@@ -53,28 +53,28 @@ public void setAge(int age) {
 	this.age = age;
 }
 public int getMobileNo() {
-	return MobileNo;
+	return mobile_no;
 }
-public void setMobileNo(int mobileNo) {
-	MobileNo = mobileNo;
+public void setMobileNo(int mobile_no) {
+	this.mobile_no = mobile_no;
 }
 public int getRoomId() {
-	return roomId;
+	return room_id;
 }
-public void setRoomId(int roomId) {
-	this.roomId = roomId;
+public void setRoomId(int room_id) {
+	this.room_id = room_id;
 }
 
 public int getPaymentId() {
-	return paymentId;
+	return payment_id;
 }
 
-public void setPaymentId(int paymentId) {
-	this.paymentId = paymentId;
+public void setPaymentId(int payment_id) {
+	this.payment_id = payment_id;
 }
 @Override
 public String toString() {
-	return "Customer [cid=" + cid + ", cName=" + cName + ", age=" + age + ", MobileNo=" + MobileNo + ", roomId="
-			+ roomId + ", paymentId=" + paymentId + "]";
+	return "Customer [cid=" + cid + ", c_name=" + c_name + ", age=" + age + ", mobile_no=" + mobile_no + ", room_id="
+			+ room_id + ", paymentId=" + payment_id + "]";
 }
 }
