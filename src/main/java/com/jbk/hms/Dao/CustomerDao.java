@@ -8,11 +8,12 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.jbk.hms.Entity.Customer;
 import com.jbk.hms.Entity.Manager;
-
+@Component
 @Repository
 public class CustomerDao {
 	@Autowired
@@ -20,7 +21,9 @@ public class CustomerDao {
 
 	public List<Customer> getAllCustomerDetails() {
 		Session session = sf.openSession();
+		@SuppressWarnings("deprecation")
 		Criteria criteria = session.createCriteria(Customer.class);
+		@SuppressWarnings("unchecked")
 		List<Customer> al = criteria.list();
 
 		return al;
@@ -28,9 +31,17 @@ public class CustomerDao {
 	public String insertNewCustomer(Customer cc) {
 		Session session = sf.openSession();
 		Transaction tr= session.beginTransaction();
-		session.save(cc);
+		session.save(cc); 
 		tr.commit();
 		return "Customer Details inserted successfully!";
+	}
+	public String updateCustomer(Customer cc) {
+		Session session = sf.openSession();
+		Transaction tr= session.beginTransaction();
+		session.update(cc);
+		tr.commit();
+		return "Customer Details updated successfully!";
+		
 	}
 	
 	

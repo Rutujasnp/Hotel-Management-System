@@ -31,7 +31,7 @@ private int room_id;
 private int payment_id;
 
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 public int getCid() {
 	return cid;

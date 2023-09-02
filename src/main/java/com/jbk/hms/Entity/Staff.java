@@ -2,7 +2,11 @@ package com.jbk.hms.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
+@Component
 @Entity
 public class Staff {
 	private int id;
@@ -13,12 +17,18 @@ public class Staff {
 	private String branchName;
 	private String profile;
 	private Double salary;
+	@OneToMany(mappedBy = "Manager")
+	@JoinColumn(name ="manager_id", referencedColumnName= "manager_id")
+	private int manager_id;
+	
+public int getManager_id() {
+		return manager_id;
+	}
 
-	/*public Staff() {
-		super();
+	public void setManager_id(int manager_id) {
+		this.manager_id = manager_id;
+	}
 
-		System.out.println("manager constructor");
-	}*/
 @Id
 	public int getId() {
 		return id;
@@ -89,4 +99,6 @@ public class Staff {
 		return "Staff [id=" + id + ", name=" + name + ", age=" + age + ", mobileNo=" + mobileNo + ", gmailId=" + gmailId
 				+ ", branchName=" + branchName + ", profile=" + profile + ", salary=" + salary + "]";
 	}
+
+	
 }

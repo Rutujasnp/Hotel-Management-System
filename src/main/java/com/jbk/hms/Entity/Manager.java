@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+@Component
 @Entity
 public class Manager {
-	private int id;
+	private int manager_id;
 	public String name;
 	private int age;
 	private int mobileNo=0;
@@ -15,19 +17,14 @@ public class Manager {
 	private String profile;
 	private Double salary;
 
-	public Manager() {
-		super();
-
-		System.out.println("manager constructor");
-	}
 
 	@Id
 	public int getId() {
-		return id;
+		return manager_id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.manager_id = id;
 	}
 
 	public String getName() {
@@ -88,7 +85,7 @@ public class Manager {
 
 	@Override
 	public String toString() {
-		return "Staff [id=" + id + ", name=" + name + ", age=" + age + ", mobileNo=" + mobileNo + ", gmailId=" + gmailId
+		return "Staff [id=" + manager_id + ", name=" + name + ", age=" + age + ", mobileNo=" + mobileNo + ", gmailId=" + gmailId
 				+ ", branchName=" + branchName + ", profile=" + profile + ", salary=" + salary + "]";
 	}
 }

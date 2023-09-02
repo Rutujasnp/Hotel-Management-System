@@ -20,8 +20,8 @@ public class StaffService {
 
 	}
 
-	public String addNewManager(Staff mm) {
-		return sd.addNewStaff(mm);
+	public String addNewStaff(Staff staff) {
+		return sd.addNewStaff(staff);
 	}
 
 	public List<Staff> salLessThan20k() {
@@ -49,8 +49,8 @@ public class StaffService {
 		return sd.idEqualTo4();
 	}
 
-	public boolean updateStaff(Staff ss) {
-		return sd.updateStaff(ss);
+	public boolean updateStaff(Staff staff) {
+		return sd.updateStaff(staff);
 		
 	}
 
@@ -94,9 +94,11 @@ public class StaffService {
 		return sd.getAllNamesAndProfiles();
 	}
 
-	public String saveOrUpdateStaff(Staff ss) {
-		return sd.saveOrUpdateStaff(ss);
+	public String saveOrUpdateStaff(Staff staff) {
+		return sd.saveOrUpdateStaff(staff);
 	}
+
+	
 
 
 }
